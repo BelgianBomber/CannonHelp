@@ -3,8 +3,9 @@ package logic.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+//Minecraft stores all entities in a list which it iterates over every gametick. This code implements logic for that list.
 public class EntityList {
-    //this is going to store all the entities that are being processed in this script
+    //this is going to store all the entities that are being processed in this script.
     List<Entity> entityList;
     int passedTicks;
 
@@ -16,14 +17,14 @@ public class EntityList {
         for (Entity e : entityList){
 
 
-            if (e.isTracked() && e.ticksUntillAffected==0)
+            if (e.isTracked() && e.ticksUntilAffected ==0)
                 System.out.printf("Tick: %-2s | ID: %-2s | Pos: %-20s | Vel: %s %n", passedTicks, e.getTrackingId(), e.getPos().getY(), e.getVel().getY());
         }
 
         clearExploded();
 
         for (Entity e : entityList){
-            if (e.ticksUntillAffected==0){
+            if (e.ticksUntilAffected ==0){
                 e.applyMovement();
                 if (e instanceof TNT){
                     int f = ((TNT) e).getFuse() - 1;

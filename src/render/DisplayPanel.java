@@ -3,6 +3,8 @@ package render;
 import javax.swing.*;
 import java.awt.*;
 
+//EVERYTHING TO DO WITH RENDERING IS VERY MUCH DELAYED THANKS
+
 public class DisplayPanel extends JPanel implements Runnable {
     final int originalTileSize = 16; //in pixels
     final int scale = 3; //multiply tile size

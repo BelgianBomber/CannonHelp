@@ -1,5 +1,6 @@
-package logic;
+package logic.core;
 
+//This class is used to have a more compact way of storing block positions as 3 doubles for x, y and z
 public class Vec3 {
     double x;
     double y;

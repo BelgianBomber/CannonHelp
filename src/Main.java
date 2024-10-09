@@ -25,12 +25,8 @@ public class Main {
             dp.startDisplayThread();
         }
 
-
-
         RatioFinder rf = new RatioFinder(useGUI);
         rf.oneRevRatio();
-
-
 
         /*
         PrimedTNT tnt = new PrimedTNT(vec3.topAlign(new Vec3(318)), new Vec3(0.0D), 5);
@@ -43,11 +39,6 @@ public class Main {
         }*/
 
         //System.out.println(3000.1D+5200.2D);
-
-
-
-
-
     }
 
 

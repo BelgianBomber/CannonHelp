@@ -1,13 +1,17 @@
 package logic.entities;
 
-import logic.Vec3;
+import logic.blocks.Block;
+import logic.blocks.BlockList;
+import logic.core.Vec3;
+import logic.core.Vec3i;
 
+//This is the main shared code for all entities. At this point, we only use fallingBlock and TNT entities, therefor there isn't much code
 public class Entity {
     Vec3 pos;
     Vec3 vel;
     boolean onGround;
 
-    int ticksUntillAffected = 0;
+    int ticksUntilAffected = 0;
     int trackingId;
     boolean isTracked = false;
 
@@ -21,9 +25,23 @@ public class Entity {
         if (onGround) vel.multiply(0.7D, -0.5D, 0.7D);
     }
 
-    //needs a lot more code to check for moving while sliding on ground, moving into blocks etc.
+    //updates the position of the entity based on the velocity and blocks in the world
     public void move() {
-        pos = pos.add(vel);
+        Vec3 nextPosition = pos.add(vel);
+
+
+
+
+        pos = nextPosition;
+    }
+
+    public boolean isWithinBlock(){
+        double x = pos.getX();
+        double z = pos.getZ();
+
+        if (0.49 > x || x > 0.51) return false;
+        if (0.49 > z || z > 0.51) return false;
+        return true;
     }
 
     public Vec3 getPos() {
@@ -55,6 +73,6 @@ public class Entity {
     }
 
     public void reduceTicksUntillAffected() {
-        this.ticksUntillAffected--;
+        this.ticksUntilAffected--;
     }
 }

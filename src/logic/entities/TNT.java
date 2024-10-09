@@ -1,6 +1,6 @@
 package logic.entities;
 
-import logic.Vec3;
+import logic.core.Vec3;
 
 public class TNT extends Entity {
     int fuse;
@@ -11,11 +11,12 @@ public class TNT extends Entity {
         this.fuse = fuse;
     }
 
+    //The "ticks until affected" means we can already store stuff in the entity list for the logic to ignore, simulating being shot from a later power
     public TNT(Vec3 pos, Vec3 vel, int fuse, int ticksUntilAffected) {
         this.pos = pos;
         this.vel = vel;
         this.fuse = fuse;
-        this.ticksUntillAffected = ticksUntilAffected;
+        this.ticksUntilAffected = ticksUntilAffected;
     }
 
     public void explode(EntityList el) {
